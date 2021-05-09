@@ -122,7 +122,4 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:protocol] = 'https'
   Rails.application.routes.default_url_options[:host] = 'auto-kokuhaku.herokuapp.com' # ngrokのホストを設定してください
 
-  config.hosts << 'auto-kokuhaku.herokuapp.com'
-  config.web_console.whitelisted_ips = '0.0.0.0/0'
-
 end
