@@ -1,0 +1,26 @@
+.card
+  .card-header
+    h4.card-title = "#{Message.model_name.human}詳細"
+    .card-tools
+      = link_to "戻る", messages_path, class: 'btn btn-outline-secondary mr-3'
+  .card-body
+    table.table.table-striped
+      tr
+        th[width="200px"] = Message.human_attribute_name(:id)
+        td = @message.id
+      tr
+        th = Message.human_attribute_name(:result)
+        td = @message.result_i18n
+      tr
+        th = Message.human_attribute_name(:from_name)
+        td = @message.from_name
+      tr
+        th = Message.human_attribute_name(:to_name)
+        td = @message.to_name
+      tr
+        th = Message.human_attribute_name(:phone_number)
+        td xxxxxxxxxxxxxx
+      tr
+        th = Message.human_attribute_name(:message)
+        td = simple_format @message.message
+
