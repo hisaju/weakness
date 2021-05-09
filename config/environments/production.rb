@@ -117,4 +117,12 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  # Uncomment if you wish to allow Action Cable access from any origin.
+  # config.action_cable.disable_request_forgery_protection = true
+  Rails.application.routes.default_url_options[:protocol] = 'https'
+  Rails.application.routes.default_url_options[:host] = 'auto-kokuhaku.herokuapp.com' # ngrokのホストを設定してください
+
+  config.hosts << 'auto-kokuhaku.herokuapp.com'
+  config.web_console.whitelisted_ips = '0.0.0.0/0'
+
 end
