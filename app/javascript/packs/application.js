@@ -10,3 +10,11 @@ import 'bootstrap/dist/css/bootstrap';
 
 Rails.start()
 ActiveStorage.start()
+
+document.addEventListener("DOMContentLoaded", () => {
+  let ele = document.getElementById('method_name')
+  ele.addEventListener('change', (ev) => {
+    let frm = document.getElementById('form')
+    frm.method = ev.currentTarget.value
+  })
+})

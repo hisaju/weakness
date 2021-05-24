@@ -2,7 +2,8 @@
   .card-header
     h4.card-title = "HTTPテスト"
   .card-body
-    = bootstrap_form_with url: '/', method: :post do |f|
+    = bootstrap_form_with url: '/', method: :post, html: {id: 'form'} do |f|
+      = f.select :method_name, options_for_select(['post', 'get'])
       = f.text_field :field1, value: 'フィールド1'
       = f.text_area :field2
       = f.submit '送信'
