@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root 'messages#index'
-  resources :messages
-  post '/messages/:id', to: 'messages#update'
+  root 'tops#index'
+  match '/', to: 'tops#index', via: :all
 end

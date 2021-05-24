@@ -1,0 +1,26 @@
+.card
+  .card-header
+    h4.card-title = "HTTPテスト"
+  .card-body
+    = bootstrap_form_with url: '/', method: :post do |f|
+      = f.text_field :field1, value: 'フィールド1'
+      = f.text_area :field2
+      = f.submit '送信'
+.card
+  .card-header
+    h4.card-title HTTPリクエストヘッダ
+  .card-body
+    .row
+      .col-12
+        table.table.table-bordered
+          - request.headers.each do |key, val|
+            - next if /[a-z]/.match?(key)
+            tr
+              td = key
+              td = val
+  .card-header
+    h4.card-title HTTPリクエストボディ
+  .card-body
+    .row
+      .col-12
+        = request.body.read
