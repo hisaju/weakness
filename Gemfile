@@ -29,6 +29,7 @@ gem 'bootstrap_form'
 gem 'enum_help'
 gem 'slim'
 gem 'pg'
+gem 'bcrypt'
 
 
 group :development, :test do

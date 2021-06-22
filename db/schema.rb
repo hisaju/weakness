@@ -10,15 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_023128) do
+ActiveRecord::Schema.define(version: 2021_06_22_060039) do
 
   create_table "messages", force: :cascade do |t|
-    t.string "phone_number"
-    t.string "from_name"
-    t.string "to_name"
+    t.string "category"
+    t.integer "user_id", null: false
     t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string "session_key"
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password"
+    t.string "name"
+    t.string "tel"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "messages", "users"
 end

@@ -1,0 +1,25 @@
+.container
+  .d-flex.justify-content-center.align-items-center
+    .col-md-6
+      .card.box.rounded-0
+        .card-header.bg-transparent
+          h5.card-title 会員登録
+        .card-body.inputs-border.inputs-bg
+          = bootstrap_form_with(model: @user, local: true, control_col: 'col-sm-9') do |f|
+            .form-group
+              .required
+                = f.text_field :name, placeholder: '名前'
+            .form-group
+              .required
+                = f.text_field :tel, placeholder: '電話番号'
+            .form-group
+              .required
+                = f.text_field :email, placeholder: 'メールアドレス'
+            .form-group
+              .required
+                = f.password_field :password, placeholder: 'パスワード'
+            .form-group
+              .required
+                = f.password_field :password_confirmation, placeholder: 'パスワード（確認）'
+            .text-center
+              = f.submit '登録する', class: 'btn btn-outline-primary btn-raised'

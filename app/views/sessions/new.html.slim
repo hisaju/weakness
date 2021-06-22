@@ -1,0 +1,16 @@
+.container style="margin-top: 100px;"
+  .d-flex.justify-content-center.align-items-center
+    .col-md-6
+      .card.box.rounded-0
+        .card-header.bg-transparent
+          h5.card-title ログイン
+        .card-body.inputs-border.inputs-bg
+          = bootstrap_form_with(url: sessions_path, method: :post, local: true, control_col: 'col-sm-9') do |f|
+            .form-group
+              .required
+                = f.text_field :email, placeholder: 'メールアドレス'
+            .form-group
+              .required
+                = f.password_field :password, placeholder: 'パスワード'
+            .text-center
+              = f.submit 'ログイン', class: 'btn btn-outline-primary btn-raised'

@@ -1,0 +1,8 @@
+- if flash.present?
+  - flash.each do |key, value|
+    - next if key == 'timedout'
+    = content_tag 'div',
+      class: "alert alert-flash alert-dismissible alert-#{flash_class(key)}" do
+      button.close[data-dismiss="alert"]
+        | ×
+      = value

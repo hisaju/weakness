@@ -1,0 +1,33 @@
+.container style="margin-top: 100px;"
+  .d-flex.justify-content-center.align-items-center
+    .col-md-6
+      .card.box.rounded-0
+        .card-header.bg-transparent
+          h5.card-title なにかの掲示板
+          = bootstrap_form_with(method: :get, url: messages_url, local: true, control_col: 'col-sm-9') do |f|
+            = f.select :category, options_for_select( \
+              [\
+              ['すべて', "SELECT * FROM messages order by id desc"], \
+              ['エンタメ', "SELECT * FROM messages WHERE category = 'entertainment' order by id desc"], \
+              ['教育', "SELECT * FROM messages WHERE category = 'education' order by id desc"],\
+              ['インターネット', "SELECT * FROM messages WHERE category = 'internet' order by id desc"]],\
+
+            ), hide_label: true, include_blank: 'カテゴリ'
+            .text-center
+              = f.submit '絞り込み', class: 'btn btn-outline-primary btn-raised'
+        .card-body.inputs-border.inputs-bg
+          = bootstrap_form_with(model: @message, local: true, control_col: 'col-sm-9') do |f|
+            = f.select :category, [['エンタメ', 'entertainment'], ['教育', 'education'], ['インターネット', 'internet']], label: 'カテゴリ'
+            = f.text_area :message, placeholder: '投稿内容', label: '投稿内容'
+            .text-center
+              = f.submit '投稿する', class: 'btn btn-outline-primary btn-raised'
+        .card-body.inputs-border.inputs-bg
+          - @messages.each do |message|
+            hr
+            .row.ml-3.mr-3
+              = raw message['message']
+            .row.ml-3.mr-3.mt-2
+              .small.mr-3 = "#{User.find(message['user_id']).name}"
+              .small.mr-3 = "#{message['created_at']}"
+              .small = message['category'] == 'entertainment' ? 'エンタメ' : message['category'] == 'education' ? '教育' : 'インターネット'
+          

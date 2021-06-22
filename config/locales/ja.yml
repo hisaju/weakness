@@ -1,23 +1,11 @@
 ja:
   activerecord:
     models:
-      message: 告白
+      user: ユーザ
     attributes:
-      message:
-        phone_number: 電話番号
-        from_name: あなたのお名前 
-        to_name: 告白相手のお名前
-        message: 告白文
-        result: 告白結果
-  enums:
-    message:
-      voice_type:
-        male: "男性"
-        female: "女性"
-      result:
-        result_ok: 'OK'
-        result_ng: 'ごめんなさい'
-        result_wait: '少し考えさせてください'
-        result_ignore: '無視されました'
-
-
+      user:
+        tel: 電話番号
+        name: お名前 
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）

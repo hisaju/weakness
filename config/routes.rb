@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  root 'tops#index'
-  match '/', to: 'tops#index', via: :all
+  root 'users#index'
+  resources 'users'
+  resource 'sessions'
+  resources 'messages'
 end

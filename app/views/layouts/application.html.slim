@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title 脆弱なサイト
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_pack_tag 'application', media: 'all'
+  body
+    = render 'layouts/header'
+    main.container
+      = render 'layouts/flash_message'
+      = yield
+    = javascript_pack_tag 'application'
